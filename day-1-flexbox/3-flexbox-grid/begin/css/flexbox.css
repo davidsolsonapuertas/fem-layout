@@ -34,14 +34,18 @@ div img {
 .row {
   display: flex;
   flex-flow: row wrap;
+  flex: 0 1 auto;
 }
 [class*="col-"] {
-  margin-left: 4%;
+  flex: 0 0 92%;
+  margin: 0 4%;
 }
-.col-1 {
+.col-1-2,
+.col-1-4 {
   background-color: #ffc;
 }
-.col-2 {
+.col-2,
+.col-2-4 {
   background-color: #ccf;
 }
 .col-3 {
@@ -50,16 +54,39 @@ div img {
 .col-4 {
   background-color: #cff;
 }
+.reverse {
+  flex-direction: row-reverse;
+}
 
 /* Mobile Landscape Screen Sizes */
 @media only screen and (min-width: 480px) {
+  [class*="col-"] {
+    margin-left: 4%;
+    margin-right: 0%;
+  }
+  .col-1-2,
+  .col-2 {
+    flex: 0 0 44%;
+  }
+  .col-1-4,
+  .col-3,
+  .col-4,
+  .col-2-4 {
+    flex: 0 0 92%;
+  }
+  .reverse [class*="col-"] {
+    margin-left: 0%;
+    margin-right: 4%;
+  }
 }
 /* Desktop screen Sizes */
 @media only screen and (min-width: 768px) {
-  .col-1 {
+  .col-1-2,
+  .col-1-4 {
     flex: 0 0 20%;
   }
-  .col-2 {
+  .col-2,
+  .col-2-4 {
     flex: 0 0 44%;
   }
   .col-3 {
@@ -67,5 +94,17 @@ div img {
   }
   .col-4 {
     flex: 0 0 92%;
+  }
+  .order-first {
+    order: 1;
+  }
+  .order-second {
+    order: 2;
+  }
+  .order-third {
+    order: 3;
+  }
+  .order-fourth {
+    order: 4;
   }
 }
